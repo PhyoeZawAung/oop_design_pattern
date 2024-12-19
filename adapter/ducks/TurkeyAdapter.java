@@ -1,4 +1,4 @@
-package adapter;
+package adapter.ducks;
 
 public class TurkeyAdapter implements Turkey{
 

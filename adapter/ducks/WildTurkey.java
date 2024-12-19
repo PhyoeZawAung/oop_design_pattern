@@ -1,4 +1,4 @@
-package adapter;
+package adapter.ducks;
 
 public class WildTurkey implements Turkey{
     @Override

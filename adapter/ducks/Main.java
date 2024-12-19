@@ -1,4 +1,8 @@
-package adapter;
+package adapter.ducks;
+
+import adapter.ducks.challenge.Drone;
+import adapter.ducks.challenge.DroneAdapter;
+import adapter.ducks.challenge.SuperDrone;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +19,12 @@ public class Main {
 
         makeTurkeyAction(wildTurkey);
         makeTurkeyAction(turkeyAdapter);
+
+        Drone drone = new SuperDrone();
+
+        Duck droneAdapter = new DroneAdapter(drone);
+
+        makeDuckAction(droneAdapter);
 
     }
 
