@@ -13,23 +13,20 @@ public class Main {
         books.add("Javascript In depth");
         books.add("HTML for kids");
 
+        Enumeration<String> enumeration = Collections.enumeration(books); // change list to enumerator
         Iterator<String> iterator = books.iterator();
-
-//        while (iterator.hasNext()){
-//            System.out.println(iterator.next());
-//        }
 
         printIterator(iterator);
 
+        Iterator<?> enumerationToIterator = new EnumerationToIterator((enumeration));
 
+        printIterator(enumerationToIterator);
 
-        Enumeration<String> enumeration = Collections.enumeration(books);
+        Enumeration<?> iteratorToEnumeration = new IteratorToEnumeration(iterator);
 
-        <String> enumToIterator = new IteratorToEnumeration(enumeration);
+        printEnumerator(enumeration);
+        printEnumerator(iteratorToEnumeration);
 
-        while(enumeration.hasMoreElements()){
-            System.out.println(enumeration.nextElement());
-        }
     }
 
     public static void printIterator(Iterator<?> iterator){
@@ -37,6 +34,12 @@ public class Main {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
 
+        }
+    }
+
+    public static void printEnumerator(Enumeration<?> enumeration){
+        while (enumeration.hasMoreElements()){
+            System.out.println(enumeration.nextElement());
         }
     }
 }

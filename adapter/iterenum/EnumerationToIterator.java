@@ -1,22 +1,26 @@
-package adapter.iterenum;
+package  adapter.iterenum;
 
 import java.util.Enumeration;
 import java.util.Iterator;
 
-public class EnumerationToIterator implements Enumeration<Object> {
-    Iterator<?> iterator;
+class EnumerationToIterator implements Iterator<Object> {
 
-    public EnumerationToIterator(Iterator<?> iterator){
-        this.iterator = iterator;
+    private final Enumeration<?> enumeration;
+
+    public EnumerationToIterator(Enumeration<?> enumeration){
+        this.enumeration = enumeration;
     }
 
-    @Override
-    public boolean hasMoreElements() {
-        return iterator.hasNext();
+    public boolean hasNext(){
+        return enumeration.hasMoreElements();
     }
 
-    @Override
-    public Object nextElement() {
-        return iterator.next();
+    public Object next(){
+        return enumeration.nextElement();
     }
+
+    public void remove(){
+        throw new UnsupportedOperationException("this operation does not support");
+    }
+
 }
